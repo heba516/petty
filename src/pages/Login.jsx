@@ -5,54 +5,41 @@ import { FcGoogle } from "react-icons/fc";
 import { BsFacebook } from "react-icons/bs";
 import { useForm } from "react-hook-form";
 
-const Register = () => {
+const Login = () => {
   const {
     register,
     handleSubmit,
-    getValues,
     formState: { errors },
   } = useForm();
   const onSubmit = (data) => console.log(data);
 
   return (
     <div className="flex">
-      <div className="hidden lg:block w-fit">
+      <div className="regImg hidden lg:block lg:fixed left-0">
         <Animal
-          className="regImg left-0 top-10"
-          src="../../public/images/login_cat.png"
-          bg="bg-[#FF8D4C] max-w-[65%] h-[70%]"
-          txt="Step 1 of 2"
+          className="-left-20 2xl:-left-40 -top-10"
+          src="../../public/images/cats.png"
+          bg="bg-green max-w-[70%] xl:max-w-[55%] h-1/2 xl:h-[55%]"
+          txt=""
+        />
+
+        <Animal
+          className="left-40 top-36"
+          src="../../public/images/dog.png"
+          bg="bg-orange max-w-[70%] xl:max-w-[55%] h-1/2 xl:h-[60%] "
+          txt=""
         />
       </div>
-
-      <div className="w-full lg:w-1/2 lg:ml-[50%] mt-0 lg:mt-20 overflow-y-auto px-6 sm:px-16 py-6 text-center">
-        <h1 className="text-5xl text-[#0A0075] font-normal">Sign up</h1>
+      <div className="w-full lg:ml-[50%] mt-0 lg:mt-20 z-50 overflow-y-auto px-6 sm:px-16 py-6 text-center">
+        <h1 className="text-5xl text-[#0A0075] font-normal">Sign in</h1>
         <p className="text-[#9E9E9D] font-medium text-xl leading-6 tracking-widest mt-1 mb-6">
-          Register to your Account
+          to keep touch with All pets
         </p>
 
-        <form onSubmit={handleSubmit(onSubmit)} className="form w-full ">
-          <InputField
-            {...register("name", {
-              required: "User name is required",
-              pattern: {
-                value: /^[A-Za-z\d]+$/g,
-                message: "Not valid user name",
-              },
-              minLength: { value: 3, message: "Min length is 3" },
-            })}
-            type="text"
-            placeholder="Enter your user name"
-            className="bg-transparent text-[#FF8D4C]"
-          />
-          {errors.name && <p className="err">{errors.name.message}</p>}
+        <form onSubmit={handleSubmit(onSubmit)} className="form w-full">
           <InputField
             {...register("email", {
               required: "Email address is required",
-              pattern: {
-                value: /^[a-zA-Z\d]+@gmail.com$/g,
-                message: "Not valid email address",
-              },
             })}
             type="text"
             placeholder="Enter your email address"
@@ -62,12 +49,6 @@ const Register = () => {
           <InputField
             {...register("password", {
               required: "Password is required",
-              pattern: {
-                value: /^(?=.*[A-Za-z])(?=.*\d).+$/g,
-                message: "Not valid password",
-              },
-              minLength: { value: 3, message: "Min length is 6" },
-              maxLength: { value: 10, message: "Max length is 10" },
             })}
             type="password"
             placeholder="Enter your password"
@@ -76,23 +57,8 @@ const Register = () => {
           {errors.password && <p className="err">{errors.password.message}</p>}
 
           <InputField
-            {...register("confPass", {
-              required: "Confirm password is required",
-              validate: (value) => {
-                const { password } = getValues();
-                return password === value || "Passwords should match!";
-              },
-            })}
-            type="password"
-            name="confPass"
-            placeholder="Confirm password"
-            className="bg-transparent text-[#FF8D4C] mt-6"
-          />
-          {errors.confPass && <p className="err">{errors.confPass.message}</p>}
-
-          <InputField
             type="submit"
-            value="Next"
+            value="Sign in"
             className="bg-[#FF8D4C] hover:bg-[#CF550F] cursor-pointer text-lg text-white capitalize font-medium mt-6"
           />
         </form>
@@ -109,17 +75,17 @@ const Register = () => {
 
           <Link className="flex items-center justify-center w-full bg-transparent text-[#FF8D4C] border-2 border-[#FF8D4C] rounded-3xl py-3 px-6 placeholder:capitalize">
             <FcGoogle className="text-2xl mr-2" />
-            signup with google
+            sign in with google
           </Link>
           <Link className="flex items-center justify-center w-full bg-transparent text-[#FF8D4C] border-2 border-[#FF8D4C] rounded-3xl py-3 px-6 placeholder:capitalize">
             <BsFacebook className="text-blue-600 text-xl mr-2" />
-            signup with facebook
+            sign in with facebook
           </Link>
 
           <p className="text-[#CF550F]">
-            Already have account ?
-            <Link to="/signin" className="text-[#0A0075] ml-1">
-              Signin
+            Donot have any account ?
+            <Link to="/signup" className="text-[#0A0075] ml-1">
+              Sign up
             </Link>
           </p>
         </div>
@@ -128,4 +94,4 @@ const Register = () => {
   );
 };
 
-export default Register;
+export default Login;
