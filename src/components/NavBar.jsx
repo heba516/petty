@@ -5,12 +5,18 @@ const NavBar = () => {
 
   return (
     <div
-      className="bg-[#FFF6F2]
-    hidden 
-    lg:flex items-center justify-between 
-    px-10 py-3 
-    rounded-[247px]
-    shadow-md shadow-[#00000040]"
+      className="
+      bg-[#FFF6F2]
+        hidden 
+        lg:fixed
+        lg:left-[2.5%]
+        w-[95%]
+        h-fit
+        lg:flex items-center justify-between 
+        px-10 py-3 
+        rounded-[247px]
+        shadow-md shadow-[#00000040]
+        z-50"
     >
       <div className="logo">
         <div className="img"></div>
