@@ -9,8 +9,8 @@ const Button = ({ txt, border = false, ...rest }) => {
         font-semibold
         ${
           border
-            ? "border-b-2 border-dashed border-[#0A0075] text-white bg-[#FF8D4C]"
-            : "text-[#0A0075]"
+            ? "border-b-2 border-dashed border-[#0A0075] text-white bg-[#FF8D4C] hover:bg-[#CF550F]"
+            : "text-[#0A0075] hover:text-[#FF8D4C]"
         }
       `}
     >
