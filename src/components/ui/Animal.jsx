@@ -22,7 +22,7 @@ const Animal = ({ bg: imgClassName, src, txt, className }) => {
       </div>
 
       <div
-        className={` m-auto ${imgClassName} flex items-end`}
+        className={` m-auto ${imgClassName} flex items-center`}
         style={{ borderRadius: "310.5px 310.5px 0px 0px" }}
       >
         <img src={src} alt="" />
